@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: iot-gateway
+  cloud:
+    nacos:
+      serverAddr: 10.10.77.220:8848
+      # 以下配置项必须填写
+      username: 'nacos'
+      password: 'zsrj@2022'
+      discovery:
+        server-addr: ${spring.cloud.nacos.serverAddr}
+        namespace: b7cfb0db-13d3-4c3f-a3e2-e99c3bd44a6f
+        group: IOT
+
+      config:
+        server-addr: ${spring.cloud.nacos.serverAddr}
+        group: IOT
+        namespace: b7cfb0db-13d3-4c3f-a3e2-e99c3bd44a6f
+        file-extension: yml
+        prefix: ${spring.application.name}
